@@ -82,8 +82,8 @@ URxvt*saveLines: 12000
 !URxvt*background: #3e3e3e
 
 ! Ubuntu mono font
-URxvt*font: xft:Ubuntu Mono Derivative Powerline:size=11,xft:UbuntuMono Nerd Font:size=11
-URxvt*boldFont: xft:Ubuntu Mono Derivative Powerline:bold:size=11,xft:UbuntuMono Nerd Font:bold:size=11
+URxvt*font: xft:UbuntuMono Nerd Font Mono:style=Regular:size=11
+URxvt*boldFont: xft:UbuntuMono Nerd Font Mono:style=Bold:size=11
 URxvt*letterSpace: -1
 
 ! scrollbar - true (default) or false
