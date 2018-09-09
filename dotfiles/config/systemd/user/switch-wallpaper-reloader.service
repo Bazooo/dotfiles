@@ -1,0 +1,10 @@
+[Unit]
+Description=Reloads the switch-wallpaper.service
+Requires=switch-wallpaper.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl --user try-restart switch-wallpaper.service
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Random wallpaper
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/home/bazoo/.config/custom/scripts/switch-wallpaper.sh
+
+[Install]
+WantedBy=multi-user.target
