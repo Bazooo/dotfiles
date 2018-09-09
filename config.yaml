@@ -17,6 +17,9 @@ dotfiles:
   d_polybar:
     dst: ~/.config/polybar
     src: config/polybar
+  d_scripts:
+    dst: /etc/wicd/scripts
+    src: etc/wicd/scripts
   d_systemd:
     dst: ~/.config/systemd
     src: config/systemd
@@ -47,3 +50,4 @@ profiles:
     - d_i3
     - d_polybar
     - d_systemd
+    - d_scripts
