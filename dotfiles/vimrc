@@ -1,0 +1,67 @@
+filetype plugin on
+filetype indent on
+
+set history=500
+set number
+set linebreak
+set showbreak=+++
+set textwidth=100
+set showmatch
+set virtualedit=onemore
+set visualbell
+
+set hlsearch
+set smartcase
+set ignorecase
+set incsearch
+set lazyredraw
+set magic
+set mat=2
+
+set autoindent
+set shiftwidth=2
+set smarttab
+set softtabstop=2
+set expandtab
+set showcmd
+
+set ruler
+set autoread
+set wildmenu
+
+set ai
+set si
+set wrap
+
+set undolevels=1000
+set backspace=indent,eol,start
+set whichwrap=<,>,h,l
+
+command W w !sudo tee % > /dev/null
+
+" YouCompleteMe
+let g:ycm_server_python_interpreter='/bin/python2'
+highlight Pmenu ctermfg=5 ctermbg=15 guifg=#ecf0f1 guibg=#333333
+
+" Airline
+let g:airline_theme='papercolor'
+let g:airline_powerline_fonts=1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols={}
+endif
+
+" Cursor modes
+let &t_SI = "\<Esc>[5 q"
+let &t_SR = "\<Esc>[3 q"
+let &t_EI = "\<Esc>[1 q"
+
+call plug#begin('~/.vim/plugged')
+  Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'valloric/youcompleteme'
+  Plug 'w0rp/ale'
+  Plug 'honza/vim-snippets'
+call plug#end()
+

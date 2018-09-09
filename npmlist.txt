@@ -1,0 +1,11 @@
+/home/bazoo/.nvm/versions/node/v9.10.1/lib
+├── create-react-app@1.5.2
+├── eslint@4.19.1
+├── jshint@2.9.5
+├── ngrok@3.0.1
+├── node-sass@4.8.3
+├── npm@6.1.0
+├── tslint@5.9.1
+├── tslint-react@3.5.1
+└── typescript@2.8.1
+

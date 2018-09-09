@@ -1,0 +1,45 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_by_default: false
+  longkey: false
+  workdir: ~/.config/dotdrop
+dotfiles:
+  d_custom:
+    dst: ~/.config/custom
+    src: config/custom
+  d_i3:
+    dst: ~/.config/i3
+    src: config/i3
+  d_polybar:
+    dst: ~/.config/polybar
+    src: config/polybar
+  f_vimrc:
+    dst: ~/.vimrc
+    src: vimrc
+  f_xbindkeysrc:
+    dst: ~/.xbindkeysrc
+    src: xbindkeysrc
+  f_xinitrc:
+    dst: ~/.xinitrc
+    src: xinitrc
+  f_xresources:
+    dst: ~/.Xresources
+    src: Xresources
+  f_zshrc:
+    dst: ~/.zshrc
+    src: zshrc
+profiles:
+  bazoo-arch:
+    dotfiles:
+    - f_zshrc
+    - f_xinitrc
+    - f_xresources
+    - f_xbindkeysrc
+    - f_vimrc
+    - d_custom
+    - d_i3
+    - d_polybar
