@@ -257,13 +257,14 @@ battery = BAT1
 adapter = ACAD
 full-at = 98
 
+label-charging-foreground = ${colors.fgright}
+label-discharging-foreground = ${colors.fgright}
+
 format-font = 4
 format-foreground = ${colors.fgright}
 format-charging = <animation-charging> <label-charging>
-format-charging-foreground = ${colors.fgright}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-foreground = ${colors.fgright}
 
 format-full-prefix =   
 format-full-foreground = ${colors.fgright}
