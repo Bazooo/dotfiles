@@ -41,6 +41,7 @@ i3lock -k -i $tmpfile \
 	--indpos="x+$xpos:y+h-$ypos" \
 	--timepos="x+ix+r+r:y+iy" \
 	--datepos="x+tx:y+ty+r" \
+        --timestr="%I:%M %p" \
 	--timecolor=$maincolor \
 	--datecolor=$maincolor \
 	--time-font="Ubuntu" \
