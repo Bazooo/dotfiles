@@ -63,11 +63,11 @@
     XF86AudioLowerVolume
 
 # Increase brightness
-"xbacklight -inc 2"
+"/home/bazoo/.config/custom/scripts/brightness.sh up 2"
     XF86MonBrightnessUp
 
 # Decrease brightness
-"xbacklight -dec 2"
+"/home/bazoo/.config/custom/scripts/brightness.sh down 2"
     XF86MonBrightnessDown
 
 #"xterm -geom 50x20+20+20"

@@ -1,6 +1,7 @@
 acpilight
 adapta-gtk-theme
 atom
+audacity
 autoconf
 automake
 autorandr
@@ -51,6 +52,7 @@ go-tools
 grep
 groff
 grub
+gvfs
 gzip
 htop
 i3-gaps
@@ -64,6 +66,7 @@ iputils
 jdk10-openjdk
 jetbrains-toolbox
 jfsutils
+jq
 less
 libmpdclient
 libtool
@@ -100,6 +103,7 @@ otf-latin-modern
 otf-latinmodern-math
 otf-stix
 pacman
+pacman-contrib
 patch
 pavucontrol
 pciutils
@@ -118,6 +122,7 @@ python-pywal
 python-virtualenv
 quickswitch-i3
 ranger
+raw-thumbnailer
 reiserfsprogs
 rofi
 rxvt-unicode
@@ -138,6 +143,8 @@ tar
 texinfo
 texlive-core
 thunar
+thunar-media-tags-plugin
+thunar-volman
 ttf-computer-modern-fonts
 ttf-font-awesome
 ttf-font-awesome-4
@@ -146,6 +153,7 @@ ttf-mathtype
 ttf-ms-fonts
 ttf-ubuntu-font-family
 ttf-unifont
+ttf-weather-icons
 udisks2
 usbutils
 util-linux

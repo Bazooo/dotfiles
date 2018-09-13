@@ -57,7 +57,7 @@ font-1 = Material Icons:fontformat=truetype:size10:antialias=true;1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = eth wlan alsa xkeyboard temperature battery date
+modules-right = alsa xkeyboard battery eth wlan date
 
 tray-position = right
 tray-padding = 0
@@ -208,7 +208,6 @@ interval = 3.0
 format-connected-prefix-foreground = ${colors.fgright}
 label-connected = 
 label-connected-font = 3
-label-connected-foreground = ${colors.fgright}
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -271,37 +270,34 @@ format-full-prefix =   
 format-full-foreground = ${colors.fgright}
 format-full-prefix-foreground = ${colors.fgright}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.fgright}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.fgright}
 animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 75
+warn-temperature = 60
 
 format = <ramp> <label>
+format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
 
 label = %temperature%
-label-foreground = ${colors.fgright}
-label-warn = %temperature% !
+label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.fgright}
 
 [module/powermenu]
