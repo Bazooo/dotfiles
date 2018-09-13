@@ -50,10 +50,8 @@ module-margin-right = 2
 bottom = false
 
 font-0 = Ubuntu Nerd Font:fontformat=truetype:size=10:antialias=true;0
-# font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-# font-2 = siji:pixelsize=10;1
 font-1 = Material Icons:fontformat=truetype:size10:antialias=true;1
-# font-4 = Ionicons:fontformat=truetype:size10:antilias=true;1
+font-2 = Weather Icons:fontformat=truetype:size11:antialias=true;1
 
 modules-left = i3
 modules-center = xwindow
@@ -261,7 +259,6 @@ full-at = 98
 label-charging-foreground = ${colors.fgright}
 label-discharging-foreground = ${colors.fgright}
 
-format-font = 4
 format-foreground = ${colors.fgright}
 format-charging = <animation-charging> <label-charging>
 
@@ -294,15 +291,22 @@ warn-temperature = 75
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 
-label = %temperature%
+label = %temperature-c%
 label-foreground = ${colors.fgright}
-label-warn = %temperature% !
+label-warn = %temperature-c% !
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.fgright}
+
+[module/openweather]
+type = custom/script
+exec = ~/.config/polybar/openweathermap-fullfeatured.sh
+interval = 600
+label-font = 3
+label-foreground = ${colors.fgright}
 
 [module/powermenu]
 type = custom/menu
