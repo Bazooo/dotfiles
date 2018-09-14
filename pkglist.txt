@@ -28,6 +28,7 @@ docker-compose
 dunst
 e2fsprogs
 efibootmgr
+etcher
 expac
 fakeroot
 feh
@@ -42,6 +43,7 @@ gawk
 gcc
 gcc-libs
 gettext
+gimp
 git
 git-sizer-bin
 gitkraken
@@ -67,6 +69,7 @@ jdk10-openjdk
 jetbrains-toolbox
 jfsutils
 jq
+keeweb-desktop
 less
 libmpdclient
 libtool
@@ -120,6 +123,7 @@ pulsemixer
 python-pip
 python-pywal
 python-virtualenv
+qbittorrent
 quickswitch-i3
 ranger
 raw-thumbnailer
@@ -145,6 +149,7 @@ texlive-core
 thunar
 thunar-media-tags-plugin
 thunar-volman
+tizonia-all
 ttf-computer-modern-fonts
 ttf-font-awesome
 ttf-font-awesome-4
