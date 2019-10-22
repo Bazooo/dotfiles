@@ -8,17 +8,12 @@ xpos=90
 ypos=90
 
 # Get screenshot
-# scrot $tmpfile
-# convert $wall -scale 10% -scale 1000% $tmpfile
 cp $tmpwall $tmpfile
 
 # Suspend dunst
 pkill -u $USER -USR1 dunst
 
 # Get colors
-# maincolor=`convert $tmpfile -resize 1x1 -format '%[hex:p{0,0}]' info:-`
-# negcolor=`convert $tmpfile -negate -resize 1x1 -format '%[hex:p{0,0}]' info:-`
-
 maincolor=`head -1 $tmpprocolors`
 negcolor=`tail -1 $tmpprocolors`
 opacity="ff"
@@ -41,7 +36,7 @@ i3lock -k -i $tmpfile \
 	--indpos="x+$xpos:y+h-$ypos" \
 	--timepos="x+ix+r+r:y+iy" \
 	--datepos="x+tx:y+ty+r" \
-        --timestr="%I:%M %p" \
+  --timestr="%I:%M %p" \
 	--timecolor=$maincolor \
 	--datecolor=$maincolor \
 	--time-font="Ubuntu" \

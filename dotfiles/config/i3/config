@@ -34,7 +34,7 @@ floating_modifier $mod
 
 # Starting programs
 exec_always --no-startup-id /home/bazoo/.config/custom/scripts/switch-wallpaper.sh
-exec_always --no-startup-id compton -f --focus-exclude '_NET_WM_NAME@:s = "rofi"'
+exec_always --no-startup-id compton -f --focus-exclude '_NET_WM_NAME@:s = "rofi"' --config ~/.config/compton/compton.conf
 exec_always --no-startup-id /home/bazoo/.config/custom/i3scripts/autoname_workspaces.py
 
 # start a terminal
@@ -86,9 +86,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -135,6 +135,7 @@ bindsym $mod+Control+j workspace next
 bindsym $mod+Control+k workspace prev
 
 # move focused container to workspace
+bindsym $mod+Shift+numbersign exec quickswitch -j -e -f
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3

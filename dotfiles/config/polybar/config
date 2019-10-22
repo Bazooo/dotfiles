@@ -54,8 +54,8 @@ font-1 = Material Icons:fontformat=truetype:size10:antialias=true;1
 font-2 = Weather Icons:fontformat=truetype:size11:antialias=true;1
 
 modules-left = i3
-modules-center = xwindow
-modules-right = eth wlan alsa xkeyboard temperature battery date
+# modules-center = xwindow
+modules-right = eth wlan updates-arch alsa xkeyboard temperature memory cpu battery date
 
 tray-position = right
 tray-padding = 0
@@ -122,7 +122,7 @@ label-unfocused = %index% [ %name% ]
 label-unfocused-padding = ${self.label-mode-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index% [ %name% ] 
+label-visible = %index% [ %name% ]
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-mode-padding}
@@ -151,8 +151,6 @@ type = internal/xbacklight
 
 format = <ramp>
 
-
-
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
@@ -161,18 +159,18 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.fgcenter}
-format-underline = #f90000
+format-prefix = " "
+format-prefix-foreground = ${colors.fgright}
 label = %percentage:2%%
+label-foreground = ${colors.fgright}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.fgcenter}
-format-underline = #4bffdc
-label = %percentage_used%%
+format-prefix = " "
+format-prefix-foreground = ${colors.fgright}
+label = %gb_used% (%percentage_used%%)
+label-foreground = ${colors.fgright}
 
 [module/wlan]
 type = internal/network
@@ -287,7 +285,7 @@ animation-charging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 75
+warn-temperature = 80
 
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
@@ -301,13 +299,6 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.fgright}
-
-[module/openweather]
-type = custom/script
-exec = ~/.config/polybar/openweathermap-fullfeatured.sh
-interval = 600
-label-font = 3
-label-foreground = ${colors.fgright}
 
 [module/powermenu]
 type = custom/menu
@@ -348,5 +339,7 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
+
+include-file = ~/.config/polybar/user_modules.ini
 
 ; vim:ft=dosini
