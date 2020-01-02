@@ -11,12 +11,15 @@ dotfiles:
   d_custom:
     dst: ~/.config/custom
     src: config/custom
-  d_i3:
-    dst: ~/.config/i3
-    src: config/i3
+  d_picom:
+    dst: ~/.config/picom
+    src: config/picom
   d_polybar:
     dst: ~/.config/polybar
     src: config/polybar
+  d_rofi:
+    dst: ~/.config/rofi
+    src: config/rofi
   d_scripts:
     dst: /etc/wicd/scripts
     src: etc/wicd/scripts
@@ -47,7 +50,8 @@ profiles:
     - f_xbindkeysrc
     - f_vimrc
     - d_custom
-    - d_i3
     - d_polybar
     - d_systemd
     - d_scripts
+    - d_picom
+    - d_rofi

@@ -1,0 +1,34 @@
+/* vim:ft=xdefaults */
+
+#                  "background", "border", "separator"
+rofi.color-window: argb:c9ecf0f1, #ecf0f1, argb:00000000
+
+#                  "bg",        "fg",       "bgalt",       "hlbg",      "hlfg"
+rofi.color-normal: argb:00000000, #f62459, argb:00000000, #f62459, #ecf0f1
+rofi.color-active: argb:00000000, #f7ca18, argb:00000000, #f7ca18, #ecf0f1
+rofi.color-urgent: argb:00000000, #ecf0f1, argb:96404552, argb:96404552, #f62459
+
+rofi.sort: true
+rofi.levenshtein-sort: true
+rofi.width: 100
+rofi.lines: 6
+rofi.font: Ubuntu 13
+rofi.bw: 0
+rofi.padding: 200
+rofi.eh: 2
+rofi.fullscreen: true
+rofi.hide-scrollbar: true
+# show tabs under the bar
+rofi.terminal: urxvt
+rofi.sidebar-mode: false
+rofi.modi: combi
+rofi.combi-modi: window,drun
+rofi.line-padding: 0
+rofi.line-margin: 1
+rofi.scrollbar-width: 5
+rofi.scroll-method: 1
+rofi.combi-hide-mode-prefix: true
+rofi.display-combi: Search
+#rofi.show-icons: true
+rofi.window-format: ● {c}  ——    {t}
+#t {w} window, {i} icon?, {c} Program, {n} program, {t} title

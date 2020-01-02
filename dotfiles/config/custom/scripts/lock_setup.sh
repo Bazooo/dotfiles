@@ -26,3 +26,5 @@ if [ -f $lockicon ]; then
 	convert $tmpwall $tmplock -gravity SouthWest -geometry +75+75 -composite -matte $tmpwall
 	rm $tmplock
 fi
+
+exit 0

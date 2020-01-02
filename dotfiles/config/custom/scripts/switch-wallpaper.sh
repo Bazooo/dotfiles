@@ -36,9 +36,6 @@ getrowinfo()
   procolor2=$value
 }
 
-# generate colors
-/home/bazoo/.config/custom/scripts/generate-wallpaper-colors.sh
-
 if [ -z $1 ]; then
   # get random wallpaper
   row=`cat $wallpapercolorsfile | sort -R | tail -1`
@@ -60,24 +57,27 @@ else
   img=$filename
 fi
 
-# Save wallpaper to cache
+# save wallpaper to cache
 echo $img > $tmpfile
 
 wallpaperfile="$wallpaperdir/$img"
 
 echo $wallpaperfile
 
-# Export colors
+# export colors
 export POLYBAR_FGLEFT="#$leftfg"
 export POLYBAR_FGCENTER="#$centerfg"
 export POLYBAR_FGRIGHT="#$rightfg"
 export POLYBAR_BGCOLOR="#$bgcolor"
 
-# Change wallpaper
+# change wallpaper
 feh $wallpaperfile --bg-scale &
 
-# Reload polybar
+# reload polybar
 /home/bazoo/.config/polybar/launch.sh &
 
-# Setup lock
+# setup lock
 /home/bazoo/.config/custom/scripts/lock_setup.sh $wallpaperfile $procolor1 $procolor2
+
+# generate colors
+/home/bazoo/.config/custom/scripts/generate-wallpaper-colors.sh

@@ -4,6 +4,7 @@
 defaultbgcolor="00000000"
 wallpaperdir="/home/bazoo/.wallpapers"
 wallpapercolorsfile="$wallpaperdir/.colors"
+dominantcolorscript="/home/bazoo/.config/custom/scripts/dominantcolor.sh"
 
 # gets foreground color for the top bar
 getfgcolor()
@@ -25,10 +26,63 @@ getbgcolor()
   fi
 }
 
-# get prominent color for the wallpaper
-getprominentcolor()
+# get lightness color of a part of the image
+getquarterlightness()
 {
-	procolor=`convert $1 -colorspace rgb +dither -colors 5 -unique-colors -format "%[hex:p{$2,0}]" info:-`
+  width=`convert $1 -ping -format "%w" info:-`
+  height=`convert $1 -ping -format "%h" info:-`
+  width=`awk "BEGIN{print $width/2}"`
+  height=`awk "BEGIN{print $height/2}"`
+  quarterlightness=`convert $1 -gravity $2 -crop $width%x$height%x+0+0 -resize 1x1 -fx lightness -format '%[fx:p{0,0}]' info:-`
+}
+
+getoppositecolor()
+{
+  oppcolor=`convert xc:#$1 -negate -depth 8 -format "%[hex:p{0,0}]" info:-`
+}
+
+getdominantcolors()
+{
+  results=`$dominantcolorscript -m 6 -n $2 -f 50 -p all $1 | grep "#"`
+  domcolors=""
+
+  while read -r result; do
+    domcolor=`echo $result | awk -F '#' '{print $2}'`
+    domcolorlight=`convert xc:#$domcolor -fx lightness -format "%[fx:p{0,0}]" info:-`
+    if [ -z $domcolors ]; then
+      domcolors="$domcolor|$domcolorlight"
+    else
+      domcolors="$domcolors,$domcolor|$domcolorlight"
+    fi
+  done <<< $results
+
+}
+
+# get prominent color for the wallpaper
+getprominentcolors()
+{
+  # get mean color of the south west quarter
+  getquarterlightness $1 SouthWest
+  quarterlightness=$quarterlightness
+
+  getdominantcolors $1 6
+  domcolorlights=$domcolors
+
+  bestdifflight=0
+  procolor1='000000'
+  procolor2='000000'
+
+  for domcolorlight in $(echo $domcolorlights | sed "s/,/ /g"); do
+    domcolor=`echo $domcolorlight | awk -F "|" '{print $1}'`
+    domlight=`echo $domcolorlight | awk -F "|" '{print $2}'`
+
+    difflight=`awk "BEGIN{print sqrt(($domlight-$quarterlightness)^2)}"`
+
+    if (( $(echo "$difflight $bestdifflight" | awk '{print ($1 > $2)}') )); then
+      bestdifflight=$difflight
+      procolor1=$domcolor
+    fi
+  done
 }
 
 # creates a row with the following format
@@ -50,11 +104,10 @@ getrow()
   getbgcolor $wallpaperfile
   bgcolor=$bgcolor
 
-  getprominentcolor $wallpaperfile 4
-  procolor1=$procolor
+  getprominentcolors $wallpaperfile
 
-  getprominentcolor $wallpaperfile 0
-  procolor2=$procolor
+  getoppositecolor $procolor1
+  procolor2=$oppcolor
 
   row="$file,$leftfg,$centerfg,$rightfg,$bgcolor,$procolor1,$procolor2"
 }
@@ -70,8 +123,10 @@ fi
 
 for wallpaper in $(ls $wallpaperdir); do
   # only generate if wallpaper is not in the color file
-  if [ -z $(cat $wallpapercolorsfile | grep $wallpaper) ]; then
+  if [ -z "$(cat $wallpapercolorsfile | grep $wallpaper)" ]; then
     getrow $wallpaper
     echo $row >> $wallpapercolorsfile
   fi
 done
+
+exit 0
